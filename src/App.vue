@@ -1,18 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <NavBarComponent :buttons="navButtons" />
+    <router-view />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavBarComponent from './components/NavBarComponent.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    NavBarComponent
+  },
+  data() {
+    return {
+      navButtons: [
+        { text: 'Home', route: '/' },
+        { text: 'DFS', route: '/dfs' },
+        { text: 'BFS', route: '/bfs' },
+        { text: 'BubbleSort', route: '/bubblesort' },
+        { text: 'MergeSort', route: '/mergesort' },
+        { text: 'QuickSort', route: '/quicksort' },
+        { text: 'Dijkstras', route: '/dijkstras' },
+        { text: 'Heapsort', route: '/heapsort' },
+      ]
+    };
   }
-}
+};
 </script>
+
 
 <style>
 #app {
@@ -21,6 +37,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>
